@@ -1,5 +1,9 @@
 package lesson3;
 
+/**
+ * Доработанная реализация Queue, с циклической перезаписью в массив
+ * @param <E>
+ */
 public class QueueImpl<E> implements Queue<E> {
 
     public static final int HEAD_DEFAULT = 0;

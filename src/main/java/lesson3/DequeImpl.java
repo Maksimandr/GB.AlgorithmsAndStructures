@@ -1,5 +1,9 @@
 package lesson3;
 
+/**
+ * Реализация Deque
+ * @param <E>
+ */
 public class DequeImpl<E> extends QueueImpl<E> implements Deque<E>{
 
     public DequeImpl(int maxSize) {

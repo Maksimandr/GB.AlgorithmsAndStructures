@@ -2,16 +2,35 @@ package lesson3;
 
 import java.util.Arrays;
 
+/**
+ * Класс для тестирования
+ */
 public class HomeWorkApp {
 
     public static void main(String[] args) {
 
-//        lostElementSearch();
-//
-//        queueArrayImproved();
-
+        lostElementSearch();
+        queueArrayImproved();
         dequeImpl();
+        sequenceOfElementsSearch();
 
+    }
+
+    public static void sequenceOfElementsSearch() {
+
+        Integer[][] arr = new Integer[7][];
+        arr[0] = new Integer[]{4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16};// [0, 0]
+        arr[1] = new Integer[]{1, 2, 3, 3, 4};// [4, 4]
+        arr[2] = new Integer[]{4, 4, 4, 4, 4, 4, 4, 8, 9, 11, 12, 13, 14, 15, 16};// [0, 6]
+        arr[3] = new Integer[]{1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4};// [5, 10]
+        arr[4] = new Integer[]{1, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 13, 14, 15, 16};// [3, 10]
+        arr[5] = new Integer[]{1, 2, 3, 4, 4, 4, 4, 8, 9, 11, 12, 13, 14, 15, 16};// [3, 6]
+        arr[6] = new Integer[]{1, 2, 3, 3, 3, 3, 4, 8, 9, 11, 12, 13, 14, 15, 16};// [6, 6]
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(Arrays.toString(arr[i]));
+            System.out.println(SequenceOfElementsSearch.search(arr[i], 4));
+        }
     }
 
     public static void lostElementSearch() {
@@ -24,9 +43,9 @@ public class HomeWorkApp {
         arr[4] = new Integer[]{2};// 1
         arr[5] = new Integer[]{};// 1
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(Arrays.toString(arr[i]));
-            System.out.println(LostElementSearch.search(arr[i]));
+        for (Integer[] integers : arr) {
+            System.out.println(Arrays.toString(integers));
+            System.out.println(LostElementSearch.search(integers));
         }
     }
 
