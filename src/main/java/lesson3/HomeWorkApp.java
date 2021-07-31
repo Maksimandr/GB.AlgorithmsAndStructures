@@ -6,9 +6,11 @@ public class HomeWorkApp {
 
     public static void main(String[] args) {
 
-        lostElementSearch();
+//        lostElementSearch();
+//
+//        queueArrayImproved();
 
-        queueArrayImproved();
+        dequeImpl();
 
     }
 
@@ -59,5 +61,38 @@ public class HomeWorkApp {
         System.out.println("add element: " + queue.insert(316));
         System.out.println("add element: " + queue.insert(320));
         queue.display();
+    }
+
+    public static void dequeImpl() {
+        Deque<Integer> deque = new DequeImpl<>(5);
+        System.out.println("add element: " + deque.insertRight(34));
+        System.out.println("add element: " + deque.insertRight(12));
+        System.out.println("add element: " + deque.insertRight(20));
+        System.out.println("add element: " + deque.insertRight(16));
+        System.out.println("add element: " + deque.insertRight(14));
+        System.out.println("add element: " + deque.insertRight(17));
+        deque.display();
+        System.out.println("remove: " + deque.removeRight());
+        deque.display();
+        System.out.println("add element: " + deque.insertLeft(117));
+        System.out.println("add element: " + deque.insertLeft(127));
+        deque.display();
+        System.out.println("remove: " + deque.removeLeft());
+        deque.display();
+        System.out.println("add element: " + deque.insertLeft(117));
+        System.out.println("add element: " + deque.insertLeft(127));
+        deque.display();
+        System.out.println("remove: " + deque.removeLeft());
+        System.out.println("remove: " + deque.removeLeft());
+        System.out.println("remove: " + deque.removeLeft());
+        System.out.println("remove: " + deque.removeLeft());
+        System.out.println("remove: " + deque.removeLeft());
+        deque.display();
+        System.out.println("add element: " + deque.insertLeft(117));
+        System.out.println("add element: " + deque.insertRight(14));
+        System.out.println("add element: " + deque.insertRight(17));
+        System.out.println("add element: " + deque.insertLeft(127));
+        System.out.println("add element: " + deque.insertRight(327));
+        deque.display();
     }
 }
