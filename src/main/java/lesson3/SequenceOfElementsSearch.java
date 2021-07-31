@@ -1,7 +1,7 @@
 package lesson3;
 
 /**
- * Нахождение интервала повторений искомого элемента в массиве [начало, окончание]
+ * Нахождение интервала повторений искомого элемента в массиве [начало, окончание], используется бинарный поиск
  */
 public class SequenceOfElementsSearch {
 
@@ -14,11 +14,13 @@ public class SequenceOfElementsSearch {
         int seqEnd;
         int i = 0;
 
+        // Цикл для поиска искомого элемента num
         while (end >= start && num >= arr[start] && num <= arr[end]) {
             i++;
             base = (start + end) / 2;
             if (arr[base] == num) {
 
+                // если елемент num найден, то ищем влево от найденого элемента начало последовательности
                 seqBegin = base;
                 seqEnd = base;
                 start = 0;
@@ -38,6 +40,7 @@ public class SequenceOfElementsSearch {
                     }
                 }
 
+                // ищем вправо окончание последовательности
                 end = arr.length - 1;
                 while (end != start && seqEnd != arr.length - 1 && arr[seqEnd + 1] == num) {
                     start = seqEnd + 1;
@@ -64,7 +67,6 @@ public class SequenceOfElementsSearch {
                 start = base + 1;
             }
         }
-
 
         return -1;
     }
