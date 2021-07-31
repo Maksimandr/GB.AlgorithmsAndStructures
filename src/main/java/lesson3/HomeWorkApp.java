@@ -8,10 +8,9 @@ public class HomeWorkApp {
 
         lostElementSearch();
 
-
+        queueArrayImproved();
 
     }
-
 
     public static void lostElementSearch() {
 
@@ -27,5 +26,38 @@ public class HomeWorkApp {
             System.out.println(Arrays.toString(arr[i]));
             System.out.println(LostElementSearch.search(arr[i]));
         }
+    }
+
+    public static void queueArrayImproved() {
+        Queue<Integer> queue = new QueueImpl<>(5);
+        System.out.println("add element: " + queue.insert(34));
+        System.out.println("add element: " + queue.insert(12));
+        System.out.println("add element: " + queue.insert(20));
+        System.out.println("add element: " + queue.insert(16));
+        System.out.println("add element: " + queue.insert(14));
+        System.out.println("add element: " + queue.insert(17));
+        queue.display();
+        System.out.println("remove: " + queue.remove());
+        queue.display();
+        System.out.println("add element: " + queue.insert(117));
+        System.out.println("add element: " + queue.insert(127));
+        queue.display();
+        System.out.println("remove: " + queue.remove());
+        System.out.println("remove: " + queue.remove());
+        System.out.println("remove: " + queue.remove());
+        System.out.println("add element: " + queue.insert(234));
+        System.out.println("add element: " + queue.insert(212));
+        System.out.println("add element: " + queue.insert(220));
+        System.out.println("add element: " + queue.insert(216));
+        queue.display();
+        System.out.println("remove: " + queue.remove());
+        System.out.println("remove: " + queue.remove());
+        System.out.println("remove: " + queue.remove());
+        System.out.println("remove: " + queue.remove());
+        System.out.println("remove: " + queue.remove());
+        System.out.println("remove: " + queue.remove());
+        System.out.println("add element: " + queue.insert(316));
+        System.out.println("add element: " + queue.insert(320));
+        queue.display();
     }
 }
