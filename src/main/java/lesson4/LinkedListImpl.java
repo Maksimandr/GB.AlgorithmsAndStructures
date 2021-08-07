@@ -1,13 +1,16 @@
 package lesson4;
 
+import java.util.Iterator;
+
 /**
- * Реализация однонаправленного связного списка (код с занятия)
+ * Реализация однонаправленного связного списка с итератором (доработанный код с занятия)
+ *
  * @param <E>
  */
-public class LinkedListImpl<E> implements LinkedList<E> {
+public class LinkedListImpl<E> implements LinkedList<E>, Iterable<E> {
 
     protected Node<E> firstElement;
-    protected int size;
+    protected int size = 0;
 
     @Override
     public void insertFirst(E value) {
@@ -104,5 +107,42 @@ public class LinkedListImpl<E> implements LinkedList<E> {
 
     protected E getValue(Node<E> value) {
         return value != null ? value.item : null;
+    }
+
+    /**
+     * Метод возвращает итератор
+     *
+     * @return итератор
+     */
+    @Override
+    public Iterator<E> iterator() {
+        return new LinkedListIterator(this);
+    }
+
+    /**
+     * Реализация итератора для однонаправленного связного списка
+     */
+    private class LinkedListIterator implements Iterator<E> {
+
+        private Node<E> returnedElement;
+        private Node<E> current;
+
+
+        public LinkedListIterator(LinkedListImpl<E> list) {
+            current = list.firstElement;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public E next() {
+
+            returnedElement = current;
+            current = current.next;
+            return returnedElement.item;
+        }
     }
 }

@@ -6,7 +6,26 @@ package lesson4;
 public class HomeWorkApp {
 
     public static void main(String[] args) {
+
+        testForEachForLinkedList();
         testDequeLinkedListImpl();
+
+    }
+
+    private static void testForEachForLinkedList() {
+
+        LinkedListImpl<Integer> linkedList = new LinkedListImpl<>();
+        linkedList.insertFirst(1);
+        linkedList.insertFirst(2);
+        linkedList.insertFirst(3);
+        linkedList.insertFirst(4);
+        linkedList.insertFirst(5);
+        linkedList.insertFirst(6);
+        linkedList.insertFirst(7);
+
+        for (Integer value : linkedList) {
+            System.out.println(value);
+        }
     }
 
     private static void testDequeLinkedListImpl() {
@@ -28,12 +47,5 @@ public class HomeWorkApp {
         linkedList.removeRight();
 
         linkedList.display();
-
-        //ДОЛЖНО РАБОТАТЬ:
-
-//        for (Integer value : linkedList) {
-//            System.out.println(value);
-//        }
     }
-
 }
