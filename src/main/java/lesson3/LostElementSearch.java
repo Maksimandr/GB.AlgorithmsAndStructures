@@ -14,23 +14,18 @@ public class LostElementSearch {
 
         int start = 0;
         int end = arr.length - 1;
-        int base = 0;
-        int i = 0;
+        int base;
 
-        while (end >= start) {
-            i++;
+        while (start <= end) {
             base = (start + end) / 2;
 
-            if (arr[base] > base + 1) {
-                end = base - 1;
-            } else {
+            if (arr[base] - base == 1) {
                 start = base + 1;
+            } else {
+                end = base - 1;
             }
         }
 
-        if (arr.length != 0 && arr[base] <= base + 1) {
-            return base + 2;
-        }
-        return base + 1;
+        return start + 1;
     }
 }
