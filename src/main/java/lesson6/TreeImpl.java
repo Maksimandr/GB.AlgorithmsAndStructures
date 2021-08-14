@@ -2,7 +2,7 @@ package lesson6;
 
 import java.util.Stack;
 
-public class TreeImpl<E extends Comparable<? super E>> implements Tree<E>{
+public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> {
 
     private int size;
     private Node<E> root;
@@ -80,7 +80,7 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E>{
 
         if (parent == null) {
             root = node;
-        } else if(parent.isLeftChild(value)) {
+        } else if (parent.isLeftChild(value)) {
             parent.setLeftChild(node);
         } else {
             parent.setRightChild(node);
@@ -95,7 +95,7 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E>{
         Node<E> removedNode = nodeAndParent.current;
         Node<E> parentNode = nodeAndParent.parent;
 
-        if(removedNode == null) {
+        if (removedNode == null) {
             return false;
         }
 
@@ -144,7 +144,7 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E>{
     }
 
     private void removeNodeWithOneChild(Node<E> removedNode, Node<E> parentNode) {
-        Node<E> childNode =  removedNode.getLeftChild() != null
+        Node<E> childNode = removedNode.getLeftChild() != null
                 ? removedNode.getLeftChild()
                 : removedNode.getRightChild();
 
@@ -235,7 +235,7 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E>{
     }
 
     private void inOrder(Node<E> current) {
-        if(current == null) {
+        if (current == null) {
             return;
         }
 
@@ -245,7 +245,7 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E>{
     }
 
     private void postOrder(Node<E> current) {
-        if(current == null) {
+        if (current == null) {
             return;
         }
 
@@ -255,7 +255,7 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E>{
     }
 
     private void preOrder(Node<E> current) {
-        if(current == null) {
+        if (current == null) {
             return;
         }
 
