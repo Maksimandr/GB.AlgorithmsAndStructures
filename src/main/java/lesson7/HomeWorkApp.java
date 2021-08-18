@@ -38,7 +38,7 @@ public class HomeWorkApp {
         graph.addEdge("Орел", "Курск");
         graph.addEdge("Курск", "Воронеж");
 
-        graph.displayShortPath(graph.findShortPathViaBfs2("Москва", "Воронеж"), false);
+        graph.displayShortPath(graph.findShortPathViaBfs("Москва", "Воронеж"), false);
     }
 
     private static void testShortPathSearchWithWeightEdge() {

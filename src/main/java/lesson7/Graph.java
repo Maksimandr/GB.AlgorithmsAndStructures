@@ -26,8 +26,6 @@ public interface Graph {
 
     Stack<String> findShortPathViaBfs(String startLabel, String finishLabel);
 
-    Stack<String> findShortPathViaBfs2(String startLabel, String finishLabel);
-
     void displayShortPath(Stack<String> vertexList, boolean withWeight);
 
     Stack<String> findShortPathWithWeightEdge(String startLabel, String finishLabel);

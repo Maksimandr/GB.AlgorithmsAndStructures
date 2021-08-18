@@ -133,7 +133,9 @@ public class GraphImpl implements Graph {
     }
 
     /**
-     * Метод находит кратчайший путь с помощью поиска в ширину
+     * Метод находит кратчайший путь с помощью поиска в ширину для не взвешенного графа.
+     * В этом случае кратчайший путь содержит наименьшее количество вершин/ребер,
+     * т.е первый из маршрутов достигший финиша кратчайший.
      *
      * @param startLabel  начало пути
      * @param finishLabel точка назначения
@@ -166,7 +168,7 @@ public class GraphImpl implements Graph {
             }
         }
 
-        // создаем стэк с кратчайшим путем, для этого проходим от конечного пункта до старта через ссылку на предыдущий узел
+        // создаем стек с кратчайшим путем, для этого проходим от конечного пункта до старта через ссылку на предыдущий узел
         Stack<String> vertexStack = new Stack<>();
         vertex = vertexList.get(finishIndex);
         vertexStack.add(finishLabel);
@@ -178,50 +180,10 @@ public class GraphImpl implements Graph {
     }
 
     /**
-     * Метод находит кратчайший путь с помощью поиска в ширину
-     *
-     * @param startLabel  начало пути
-     * @param finishLabel точка назначения
+     * Выводит на экран кратчайший путь
+     * @param stringStack стек содержащий названия вершин
+     * @param withWeight для взвешенного графа выводится расстояние минимального пути
      */
-    @Override
-    public Stack<String> findShortPathViaBfs2(String startLabel, String finishLabel) {
-        int startIndex = indexOf(startLabel);
-        int finishIndex = indexOf(finishLabel);
-        if (startIndex == -1) {
-            throw new IllegalArgumentException("Неверный индекс: " + startLabel);
-        } else if (finishIndex == -1) {
-            throw new IllegalArgumentException("Неверный индекс: " + finishLabel);
-        }
-
-        Queue<Vertex> queue = new LinkedList<>();
-
-        Vertex vertex = vertexList.get(startIndex);
-        Vertex previousVertex;
-
-        visitVertex(queue, vertex);
-
-        while (!queue.isEmpty()) {
-            previousVertex = queue.peek();
-            vertex = getNearUnvisitedVertex(previousVertex);
-            if (vertex != null) {
-                vertex.setPreviousVertex(previousVertex);
-                visitVertex(queue, vertex);
-            } else {
-                queue.remove();
-            }
-        }
-
-        // создаем стэк с кратчайшим путем, для этого проходим от конечного пункта до старта через ссылку на предыдущий узел
-        Stack<String> vertexStack = new Stack<>();
-        vertex = vertexList.get(finishIndex);
-        vertexStack.add(finishLabel);
-        while (vertex.getPreviousVertex() != null) {
-            vertex = vertex.getPreviousVertex();
-            vertexStack.add(vertex.getLabel());
-        }
-        return vertexStack;
-    }
-
     public void displayShortPath(Stack<String> stringStack, boolean withWeight) {
 
         if (withWeight) {
@@ -229,7 +191,6 @@ public class GraphImpl implements Graph {
         } else {
             System.out.println("Кратчайший путь от " + stringStack.peek() + " до " + stringStack.firstElement() + " : ");
         }
-
 
         while (!stringStack.isEmpty()) {
             System.out.print(stringStack.pop());
@@ -289,7 +250,7 @@ public class GraphImpl implements Graph {
 
         int currentIndex = startIndex;
 
-        //обходим вершины от стартовой и находим для каждой минимальную дистанцию от старта, запоминаем
+        // обходим вершины от стартовой и находим для каждой минимальную дистанцию от старта, запоминаем
         // предшествующий узел для этого пути, отмечаем вершину как просмотренную, продолжаем пока не пройдем все
         // вершины кроме финишной для пути
         while (!queue.isEmpty()) {
