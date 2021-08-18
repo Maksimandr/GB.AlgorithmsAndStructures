@@ -22,8 +22,13 @@ public interface Graph {
      */
     void bfs(String startLabel);
 
+    boolean addEdgeWithWeight(String startLabel, String endLabel, int edgeWeight);
+
     Stack<String> findShortPathViaBfs(String startLabel, String finishLabel);
 
-    void displayShortPath(Stack<String> vertexList);
+    Stack<String> findShortPathViaBfs2(String startLabel, String finishLabel);
 
+    void displayShortPath(Stack<String> vertexList, boolean withWeight);
+
+    Stack<String> findShortPathWithWeightEdge(String startLabel, String finishLabel);
 }

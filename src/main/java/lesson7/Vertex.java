@@ -6,6 +6,15 @@ public class Vertex {
     private final String label;
     private boolean visited;
     private Vertex previousVertex;
+    private int distanceFromStart = Integer.MAX_VALUE;
+
+    public int getDistanceFromStart() {
+        return distanceFromStart;
+    }
+
+    public void setDistanceFromStart(int distanceFromStart) {
+        this.distanceFromStart = distanceFromStart;
+    }
 
     public Vertex getPreviousVertex() {
         return previousVertex;
